@@ -26,15 +26,20 @@ df_pair_tbl <- data.frame(var1 = z[[1]][1],
                         stringsAsFactors = FALSE
                         )
 
-if (grepl("warning", z[[22]][1], ignore.case = TRUE))  {
-      # Add these two columns to df_pair_tbl, if there is a "warning" message in data_out
-      df_pair_tbl$ld <- paste(z[[21]], collapse = " ")
-      df_pair_tbl$note <- paste(z[[22]], collapse = " ")
+ if (nrow(data_out) == 22) {
+   if (grepl("warning", z[[22]][1], ignore.case = TRUE))  {
+     # Add these two columns to df_pair_tbl, if there is a "warning" message in data_out
+     df_pair_tbl$ld <- paste(z[[21]], collapse = " ")
+     df_pair_tbl$note <- paste(z[[22]], collapse = " ")
 
-  } else {
-      # Used if no "warning" message in data_out
-      df_pair_tbl$corr_alleles <- paste(z[[21]][1], "-", z[[21]][6], ", ", z[[22]][1], "-", z[[22]][6], sep="")
-    }
+   } else {
+     # Used if no "warning" message in data_out
+     df_pair_tbl$corr_alleles <- paste(z[[21]][1], "-", z[[21]][6], ", ", z[[22]][1], "-", z[[22]][6], sep="")
+   }
+
+ } else {
+   df_pair_tbl$ld <- paste(z[[21]], collapse = " ")
+ }
 
  return(df_pair_tbl)
 }
@@ -159,8 +164,8 @@ data_out <- read.delim(textConnection(httr::content(raw_out, "text", encoding = 
       cat(content(raw_out, "text"))
     } else if (is.character(file)) {
       cat(content(raw_out, "text"))
-      writeLines(capture.output(cat(content(raw_out, "text"))), file)
-      cat(paste("\nFile saved to ",file,".", sep=""))
+      writeLines(capture.output(cat(content(raw_out, "text"))), "text_out.txt")
+      cat(paste("\nFile saved to ","text_out.txt",".", sep=""))
      }
   } else if (output == "table") {
     if(file == FALSE) {
@@ -169,8 +174,8 @@ data_out <- read.delim(textConnection(httr::content(raw_out, "text", encoding = 
     } else if (is.character(file)) {
       data_out_tbl <- table_out(data_out)
       print(data_out_tbl)
-      write.table(data_out_tbl, file = file, quote = F, row.names = F, sep = "\t")
-      cat(paste("\nTable saved to ",file,".", sep=""))
+      write.table(data_out_tbl, file = "table_out.txt", quote = F, row.names = F, sep = "\t")
+      cat(paste("\nTable saved to ","table_out.txt",".", sep=""))
       return(data_out_tbl)
     }
   }

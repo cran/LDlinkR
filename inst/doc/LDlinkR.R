@@ -6,7 +6,8 @@ library("LDlinkR")
 #  install.packages("LDlinkR")
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  devtools::install_github("CBIIT/LDlinkR")
+#  install.packages("remotes")
+#  remotes::install_github("CBIIT/LDlinkR")
 
 ## ----eval=FALSE---------------------------------------------------------------
 #  library(LDlinkR)
@@ -22,11 +23,47 @@ library("LDlinkR")
 ## ----eval=FALSE---------------------------------------------------------------
 #  LDLINK_TOKEN=YourTokenHere123
 
-## -----------------------------------------------------------------------------
-Sys.getenv("LDLINK_TOKEN")
+## ----eval = FALSE-------------------------------------------------------------
+#  Sys.getenv("LDLINK_TOKEN")
 
 ## ----eval=FALSE---------------------------------------------------------------
 #  Sys.getenv("LDLINK_TOKEN")
+
+## ----eval=FALSE---------------------------------------------------------------
+#  LDexpress(snps,
+#            pop = "CEU",
+#            tissue = "ALL",
+#            r2d = "r2",
+#            r2d_threshold = 0.1,
+#            p_threshold = 0.1,
+#            win_size = 500000,
+#            token = NULL,
+#            file = FALSE
+#           )
+
+## ----eval=FALSE---------------------------------------------------------------
+#  my_output <- LDexpress(snps = "rs4",
+#                         pop = c("YRI", "CEU"),
+#                         tissue =  c("ADI_SUB", "ADI_VIS_OME"),
+#                         win_size = "500000",
+#                         token = Sys.getenv("LDLINK_TOKEN")
+#                        )
+
+## ----eval=FALSE---------------------------------------------------------------
+#  head(my_output)
+
+## ----eval=FALSE---------------------------------------------------------------
+#  my_output <- LDexpress(snps = c("rs345", "rs456"),
+#                         pop = "YRI",
+#                         tissue =  "Adipose_Visceral_Omentum",
+#                         token = Sys.getenv("LDLINK_TOKEN")
+#    )
+
+## ----eval=FALSE---------------------------------------------------------------
+#  head(my_output)
+
+## ----eval=FALSE---------------------------------------------------------------
+#  tail(my_output)
 
 ## ----eval=FALSE---------------------------------------------------------------
 #  LDhap(snps = c("rs3", "rs4", "rs148890987"),
@@ -110,6 +147,29 @@ my_variants
 #               )
 
 ## ----eval=FALSE---------------------------------------------------------------
+#  LDtrait(snps,
+#          pop = "CEU",
+#          r2d = "r2",
+#          r2d_threshold = 0.1,
+#          win_size = 500000,
+#          token = NULL,
+#          file = FALSE
+#          )
+
+## ----eval=FALSE---------------------------------------------------------------
+#  LDtrait(snps = "rs456",
+#          pop = c("YRI", "CEU"),
+#          token = Sys.getenv("LDLINK_TOKEN")
+#         )
+
+## ----eval=FALSE---------------------------------------------------------------
+#  LDtrait(snps = c("rs114", "rs496202", "rs345"),
+#          pop = c("YRI", "CHB", "CEU"),
+#          win_size = "750000",
+#          token = Sys.getenv("LDLINK_TOKEN")
+#         )
+
+## ----eval=FALSE---------------------------------------------------------------
 #  SNPchip(snps = c("rs3", "rs4", "rs148890987"),
 #          chip = "ALL",
 #          token = Sys.getenv("LDLINK_TOKEN")
@@ -141,25 +201,31 @@ list_chips()
 ## -----------------------------------------------------------------------------
 list_pop()
 
-## ----eval = FALSE-------------------------------------------------------------
+## ---- echo=FALSE----------------------------------------------------------------------------------
+options(width = 100)
+
+## -------------------------------------------------------------------------------------------------
+list_gtex_tissues()
+
+## ----eval = FALSE---------------------------------------------------------------------------------
 #  df <- LDproxy(snp = "rs456", pop = "YRI", token = "123abc456789")
 
-## ----eval=FALSE---------------------------------------------------------------
+## ----eval=FALSE-----------------------------------------------------------------------------------
 #  df <- LDproxy("rs12027135", pop = "CEU",r2d = "r2", token = "YourTokenHere123")
 #  new_df <- subset(df, R2 >= 0.8)
 
-## ----eval=FALSE---------------------------------------------------------------
+## ----eval=FALSE-----------------------------------------------------------------------------------
 #  test <- read.table("variant_list.txt", header = FALSE)
 #  LDmatrix(snps = test, pop = "CEU", r2d = "r2", token = "YourTokenHere123")
 
-## ----eval=FALSE---------------------------------------------------------------
+## ----eval=FALSE-----------------------------------------------------------------------------------
 #  test <- read.table("variant_list.txt", header = FALSE)
 #  LDmatrix(snps = test[,1], pop = "CEU", r2d = "r2", token = "YourTokenHere123")
 
-## ----eval=TRUE, echo=FALSE----------------------------------------------------
+## ----eval=TRUE, echo=FALSE------------------------------------------------------------------------
 test <- read.table("variant_list.txt", header = FALSE)
 LDmatrix(snps = test[,1], pop = "CEU", r2d = "r2", token = Sys.getenv("LDLINKR_TOKEN"))
 
-## -----------------------------------------------------------------------------
+## -------------------------------------------------------------------------------------------------
 sessionInfo()
 

@@ -47,7 +47,8 @@ df_pair_tbl <- data.frame(var1 = z[[1]][1],
 
 
 ###### Primary Function #######
-#' Query LDpair API
+#' Investigates potentially correlated alleles for a
+#' pair of variants.
 #'
 #' @param var1 the first RS number or genomic coordinate (e.g. "chr7:24966446")
 #' @param var2 the second RS number or genomic coordinate (e.g. "ch7:24966446")
@@ -56,7 +57,7 @@ df_pair_tbl <- data.frame(var1 = z[[1]][1],
 #' @param output two output options available, "text", which displays a two-by-two matrix displaying haplotype counts and allele frequencies along with other statistics, or "table", which displays the same data in rows and columns, default = "table"
 #' @param file Optional character string naming a path and file for saving results.  If file = FALSE, no file will be generated, default = FALSE.
 #'
-#' @return text or data frame, dependning on the output option
+#' @return text or data frame, depending on the output option
 #' @importFrom httr GET content stop_for_status
 #' @importFrom utils capture.output read.delim write.table
 #' @export

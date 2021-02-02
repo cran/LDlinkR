@@ -2,7 +2,8 @@
 % Please edit documentation in R/LDpair.R
 \name{LDpair}
 \alias{LDpair}
-\title{Query LDpair API}
+\title{Investigates potentially correlated alleles for a
+pair of variants.}
 \usage{
 LDpair(var1, var2, pop = "CEU", token = NULL, output = "table", file = FALSE)
 }
@@ -20,10 +21,11 @@ LDpair(var1, var2, pop = "CEU", token = NULL, output = "table", file = FALSE)
 \item{file}{Optional character string naming a path and file for saving results.  If file = FALSE, no file will be generated, default = FALSE.}
 }
 \value{
-text or data frame, dependning on the output option
+text or data frame, depending on the output option
 }
 \description{
-Query LDpair API
+Investigates potentially correlated alleles for a
+pair of variants.
 }
 \examples{
 \dontrun{LDpair(var1 = "rs3", var2 = "rs4", pop = "YRI", token = Sys.getenv("LDLINK_TOKEN"))}

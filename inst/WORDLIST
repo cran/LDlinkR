@@ -1,5 +1,6 @@
 ADI
 Affy
+CBIIT
 CEU
 GRCh
 GTEx
@@ -19,6 +20,7 @@ MAF
 METACRAN
 OME
 Omentum
+README
 RStudio
 SNPchip
 SNPclip
@@ -38,7 +40,9 @@ dbSNP
 doi
 eQTL
 et
+eval
 germline
+github
 gtex
 hg
 https

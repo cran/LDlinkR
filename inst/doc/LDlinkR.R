@@ -222,10 +222,6 @@ list_gtex_tissues()
 #  test <- read.table("variant_list.txt", header = FALSE)
 #  LDmatrix(snps = test[,1], pop = "CEU", r2d = "r2", token = "YourTokenHere123")
 
-## ----eval=TRUE, echo=FALSE------------------------------------------------------------------------
-test <- read.table("variant_list.txt", header = FALSE)
-LDmatrix(snps = test[,1], pop = "CEU", r2d = "r2", token = Sys.getenv("LDLINKR_TOKEN"))
-
 ## -------------------------------------------------------------------------------------------------
 sessionInfo()
 

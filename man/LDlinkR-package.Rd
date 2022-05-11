@@ -8,12 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-Provides access to the 'LDlink' API (<https://ldlink.nci.nih.gov/?tab=apiaccess>)
-    using the R console.  This programmatic access facilitates researchers who are 
-    interested in performing batch queries in 1000 Genomes Project (2015) <doi:10.1038/nature15393> 
-    data using 'LDlink'. 'LDlink' is an interactive and powerful suite of web-based tools for querying 
-    germline variants in human population groups of interest. For more details, please see 
-    Machiela et al. (2015) <doi:10.1093/bioinformatics/btv402>.
+Provides access to the 'LDlink' API (<https://ldlink.nci.nih.gov/?tab=apiaccess>) using the R console. This programmatic access facilitates researchers who are interested in performing batch queries in 1000 Genomes Project (2015) <doi:10.1038/nature15393> data using 'LDlink'. 'LDlink' is an interactive and powerful suite of web-based tools for querying germline variants in human population groups of interest. For more details, please see Machiela et al. (2015) <doi:10.1093/bioinformatics/btv402>.
 }
 \seealso{
 Useful links:
@@ -24,12 +19,12 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Timothy A. Myers \email{myersta@mail.nih.gov}
+\strong{Maintainer}: Timothy A. Myers \email{myersta@mail.nih.gov} (\href{https://orcid.org/0000-0001-8127-3446}{ORCID})
 
 Authors:
 \itemize{
   \item Stephen J. Chanock \email{chanocks@mail.nih.gov}
-  \item Mitchell J. Machiela \email{mitchell.machiela@nih.gov}
+  \item Mitchell J. Machiela \email{mitchell.machiela@nih.gov} (\href{https://orcid.org/0000-0001-6538-9705}{ORCID})
 }
 
 }

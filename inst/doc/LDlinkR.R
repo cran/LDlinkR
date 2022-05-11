@@ -1,6 +1,6 @@
 ## ----setup, include=FALSE-----------------------------------------------------
 knitr::opts_chunk$set(echo = TRUE)
-library("LDlinkR")
+# library("LDlinkR")
 
 ## ----eval=FALSE---------------------------------------------------------------
 #  install.packages("LDlinkR")
@@ -37,6 +37,7 @@ library("LDlinkR")
 #            r2d_threshold = 0.1,
 #            p_threshold = 0.1,
 #            win_size = 500000,
+#            genome_build = "grch37",
 #            token = NULL,
 #            file = FALSE
 #           )
@@ -56,19 +57,18 @@ library("LDlinkR")
 #  my_output <- LDexpress(snps = c("rs345", "rs456"),
 #                         pop = "YRI",
 #                         tissue =  "Adipose_Visceral_Omentum",
+#                         genome_build = "grch38",
 #                         token = Sys.getenv("LDLINK_TOKEN")
-#    )
+#                        )
 
 ## ----eval=FALSE---------------------------------------------------------------
 #  head(my_output)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  tail(my_output)
-
-## ----eval=FALSE---------------------------------------------------------------
 #  LDhap(snps = c("rs3", "rs4", "rs148890987"),
 #        pop = "CEU",
-#        token = Sys.getenv("LDLINK_TOKEN")
+#        token = Sys.getenv("LDLINK_TOKEN"),
+#        genome_build = "grch38_high_coverage"
 #       )
 
 ## ----eval=FALSE---------------------------------------------------------------
@@ -78,14 +78,32 @@ library("LDlinkR")
 #       )
 
 ## ----eval=FALSE---------------------------------------------------------------
+#  LDhap(snps = c("rs660670", "rs556780", "rs355", "rs356", "rs542746"),
+#        pop = "CEU",
+#        token = Sys.getenv("LDLINK_TOKEN"),
+#        table_type = "merged",
+#        genome_build = "grch38"
+#       )
+
+## ----eval=FALSE---------------------------------------------------------------
+#  LDhap(snps = c("rs660670", "rs556780", "rs355", "rs356", "rs542746"),
+#        pop = "CEU",
+#        token = Sys.getenv("LDLINK_TOKEN"),
+#        table_type = "both"
+#       )
+
+## ----eval=FALSE---------------------------------------------------------------
 #  LDmatrix(snps = c("rs496202", "rs11147477", "rs201578600"),
-#           pop = "YRI", r2d = "r2",
-#           token = Sys.getenv("LDLINK_TOKEN")
+#           pop = "YRI",
+#           r2d = "r2",
+#           token = Sys.getenv("LDLINK_TOKEN"),
+#           genome_build = "grch38"
 #          )
 
 ## ----eval=FALSE---------------------------------------------------------------
 #  LDmatrix(snps = c("chr13:32444611", "rs11147477", "rs201578600"),
-#           pop = c("YRI", "CEU"), r2d = "d",
+#           pop = c("YRI", "CEU"),
+#           r2d = "d",
 #           token = Sys.getenv("LDLINK_TOKEN")
 #          )
 
@@ -104,14 +122,16 @@ my_variants
 #         var2 = "rs11147477",
 #         pop = "YRI",
 #         token = Sys.getenv("LDLINK_TOKEN"),
-#         output = "text"
+#         output = "text",
+#         genome_build = "grch38"
 #        )
 
 ## ----eval=FALSE---------------------------------------------------------------
 #  LDpair(var1 = "rs496202",
 #         var2 = "rs11147477",
 #         pop = "YRI",
-#         token = Sys.getenv("LDLINK_TOKEN")
+#         token = Sys.getenv("LDLINK_TOKEN"),
+#         genome_build = "grch38"
 #        )
 
 ## ----eval=FALSE---------------------------------------------------------------
@@ -119,7 +139,8 @@ my_variants
 #        var2 = "rs11147477",
 #        pop = "YRI",
 #        r2d = "r2",
-#        token = Sys.getenv("LDLINK_TOKEN")
+#        token = Sys.getenv("LDLINK_TOKEN"),
+#        genome_build = "grch38_high_coverage"
 #       )
 
 ## ----eval=FALSE---------------------------------------------------------------
@@ -153,13 +174,15 @@ my_variants
 #          r2d_threshold = 0.1,
 #          win_size = 500000,
 #          token = NULL,
-#          file = FALSE
-#          )
+#          file = FALSE,
+#          genome_build = "grch37"
+#         )
 
 ## ----eval=FALSE---------------------------------------------------------------
 #  LDtrait(snps = "rs456",
 #          pop = c("YRI", "CEU"),
-#          token = Sys.getenv("LDLINK_TOKEN")
+#          token = Sys.getenv("LDLINK_TOKEN"),
+#          genome_build = "grch38"
 #         )
 
 ## ----eval=FALSE---------------------------------------------------------------
@@ -178,7 +201,8 @@ my_variants
 ## ----eval=FALSE---------------------------------------------------------------
 #  SNPchip(snps = c("rs3", "rs4", "rs148890987"),
 #          chip = c("A_SNP5.0", "A_CHB2"),
-#          token = Sys.getenv("LDLINK_TOKEN")
+#          token = Sys.getenv("LDLINK_TOKEN"),
+#          genome_build = "grch38"
 #         )
 
 ## ----eval=FALSE---------------------------------------------------------------
@@ -192,20 +216,21 @@ my_variants
 #          pop = "YRI",
 #          r2_threshold =  "0.1",
 #          maf_threshold = "0.01",
-#          token = Sys.getenv("LDLINK_TOKEN")
+#          token = Sys.getenv("LDLINK_TOKEN"),
+#          genome_build = "grch37"
 #         )
 
-## -----------------------------------------------------------------------------
-list_chips()
+## ----eval=FALSE---------------------------------------------------------------
+#  list_chips()
 
-## -----------------------------------------------------------------------------
-list_pop()
+## ----eval=FALSE---------------------------------------------------------------
+#  list_pop()
 
 ## ---- echo=FALSE----------------------------------------------------------------------------------
 options(width = 100)
 
-## -------------------------------------------------------------------------------------------------
-list_gtex_tissues()
+## ----eval=FALSE-----------------------------------------------------------------------------------
+#  list_gtex_tissues()
 
 ## ----eval = FALSE---------------------------------------------------------------------------------
 #  df <- LDproxy(snp = "rs456", pop = "YRI", token = "123abc456789")

@@ -7,7 +7,11 @@
 #' @param pop a 1000 Genomes Project population, (e.g. YRI or CEU), multiple allowed, default = "CEU"
 #' @param r2d either "r2" for LD R2 or "d" for LD D', default = "r2"
 #' @param token LDlink provided user token, default = NULL, register for token at  \url{https://ldlink.nci.nih.gov/?tab=apiaccess}
-#' @param append logical. If TRUE, output for each query variant is appended to a text file. If FALSE, output of each query variant is saved in its own text file.
+#' @param append A logical. If TRUE, output for each query variant is appended to a text file. If FALSE, output of each query variant is saved in its own text file.
+#' Default is FALSE.
+#' @param genome_build Choose between one of the three options...`grch37` for genome build GRCh37 (hg19),
+#' `grch38` for GRCh38 (hg38), or `grch38_high_coverage` for GRCh38 High Coverage (hg38) 1000 Genome Project
+#' data sets.  Default is GRCh37 (hg19).
 #'
 #' @return text file(s) are saved to the current working directory.
 #' @importFrom utils write.table
@@ -17,16 +21,25 @@
 #' \dontrun{snps_to_upload <- c("rs3", "rs4")}
 #' \dontrun{LDproxy_batch(snp = snps_to_upload, token = Sys.getenv("LDLINK_TOKEN"), append = FALSE)}
 #'
-LDproxy_batch <- function(snp, pop="CEU", r2d="r2", token=NULL, append = FALSE) {
-
-  snp <- as.data.frame(snp)
+LDproxy_batch <- function(snp,
+                          pop="CEU",
+                          r2d="r2",
+                          token=NULL,
+                          append = FALSE,
+                          genome_build = "grch37") {
 
   snp <- as.data.frame(snp)
 
   if(append == FALSE) {
     for (i in 1:nrow(snp)) {
-      myfile <- paste(snp[i,], ".txt", sep="")
-      df_proxy <- LDproxy(snp=snp[i,], pop, r2d, token)
+      myfile <- paste(snp[i,], "_", genome_build, ".txt", sep="")
+      cat("\nSubmitting request for query variant ", snp[i,],".", sep = "")
+      cat("\nChecking status of server...")
+      df_proxy <- LDproxy(snp = snp[i,],
+                          pop = pop,
+                          r2d = r2d,
+                          token = token,
+                          genome_build = genome_build)
       if(!(grepl("error", df_proxy[1,1])))
       {
         write.table(df_proxy, file = myfile,
@@ -34,11 +47,20 @@ LDproxy_batch <- function(snp, pop="CEU", r2d="r2", token=NULL, append = FALSE) 
                     quote = FALSE,
                     row.names = TRUE,
                     sep = "\t")
+        file_path <- getwd()
+        cat("File for query variant ", snp[i,], " saved to:\n ", file_path, "/", myfile,"\n", sep="")
       }
     }
   } else if (append == TRUE) {
+    myfile <- paste("combined_query_snp_list_", genome_build, ".txt", sep="")
     for (i in 1:nrow(snp)) {
-      df_proxy <- LDproxy(snp=snp[i,], pop, r2d, token)
+      cat("\nSubmitting request for query variant ", snp[i,],".", sep = "")
+      cat("\nChecking status of server...")
+      df_proxy <- LDproxy(snp = snp[i,],
+                          pop = pop,
+                          r2d = r2d,
+                          token = token,
+                          genome_build = genome_build)
       if(!(grepl("error", df_proxy[1,1])))
       {
         # add new column, query_snp
@@ -49,15 +71,18 @@ LDproxy_batch <- function(snp, pop="CEU", r2d="r2", token=NULL, append = FALSE) 
         # column names to file from write.table when append is TRUE
         # issue #2
         suppressWarnings(
-        write.table(df_proxy, file = "combined_query_snp_list.txt",
+        write.table(df_proxy,
+                    file = myfile,
                     append = TRUE,
                     quote = FALSE,
                     row.names = TRUE,
-                    col.names = !file.exists("combined_query_snp_list.txt"),
+                    col.names = !file.exists(myfile),
                     sep = "\t")
               )
       }
     }
+    file_path <- getwd()
+    cat("Combined file for all query variants saved to:\n", file_path, "/", myfile,"\n", sep="")
   }
 }
 ############################## End Function ##############################

@@ -1,4 +1,11 @@
+# LDlinkR 1.2.1
+* Update version number
+* Fix bug in LDexpress that returned GRCH37 results when genome build was GRCh38 or GRCh38 High Coverage.
+* Fix bug in LDproxy handling of error/warning warning messages in response data.
+* Update RoxygenNote to 7.2.0
+
 # LDlinkR 1.2.0
+* Submission date: 2022-05-11
 * Issue #13 - Add new argument to `LDhap` (table_type) with four options for different types data output.
 * Issue #14 - Fix `LDhap` valid input check for number of input 'snps', line 94.
 * Add 'snps' to the WORDLIST

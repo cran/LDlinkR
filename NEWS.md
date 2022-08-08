@@ -1,7 +1,12 @@
+# LDlinkR 1.2.2
+* Issue #19, fix bug in LDtrait error handling of response data.
+* Update CRAN downloads badge in README
+* Remove link for 1000 Genomes Project in README and vignette
+
 # LDlinkR 1.2.1
 * Update version number
 * Fix bug in LDexpress that returned GRCH37 results when genome build was GRCh38 or GRCh38 High Coverage.
-* Fix bug in LDproxy handling of error/warning warning messages in response data.
+* Fix bug in LDproxy handling of error/warning messages in response data.
 * Update RoxygenNote to 7.2.0
 
 # LDlinkR 1.2.0

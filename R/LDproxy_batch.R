@@ -12,6 +12,7 @@
 #' @param genome_build Choose between one of the three options...`grch37` for genome build GRCh37 (hg19),
 #' `grch38` for GRCh38 (hg38), or `grch38_high_coverage` for GRCh38 High Coverage (hg38) 1000 Genome Project
 #' data sets.  Default is GRCh37 (hg19).
+#' @param api_root Optional alternative root url for API.
 #'
 #' @return text file(s) are saved to the current working directory.
 #' @importFrom utils write.table
@@ -26,7 +27,8 @@ LDproxy_batch <- function(snp,
                           r2d="r2",
                           token=NULL,
                           append = FALSE,
-                          genome_build = "grch37") {
+                          genome_build = "grch37",
+                          api_root="https://ldlink.nci.nih.gov/LDlinkRest") {
 
   snp <- as.data.frame(snp)
 
@@ -39,7 +41,8 @@ LDproxy_batch <- function(snp,
                           pop = pop,
                           r2d = r2d,
                           token = token,
-                          genome_build = genome_build)
+                          genome_build = genome_build,
+                          api_root = api_root)
       if(!(grepl("error", df_proxy[1,1])))
       {
         write.table(df_proxy, file = myfile,
@@ -60,13 +63,14 @@ LDproxy_batch <- function(snp,
                           pop = pop,
                           r2d = r2d,
                           token = token,
-                          genome_build = genome_build)
+                          genome_build = genome_build,
+                          api_root = api_root)
       if(!(grepl("error", df_proxy[1,1])))
       {
         # add new column, query_snp
         df_proxy["query_snp"] <- rep(snp[i,], nrow(df_proxy))
         # rearrange by column index
-        df_proxy <- df_proxy[, colnames(df_proxy)[c(11, 1:10)]]
+        df_proxy <- df_proxy[, colnames(df_proxy)[c(ncol(df_proxy), 1:(ncol(df_proxy)-1))]]
         # suppress warning message by write.table about appending
         # column names to file from write.table when append is TRUE
         # issue #2

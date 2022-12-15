@@ -12,7 +12,7 @@
 
 <meta name="author" content="Timothy A. Myers, Stephen J. Chanock and Mitchell J. Machiela" />
 
-<meta name="date" content="2022-08-08" />
+<meta name="date" content="2022-12-15" />
 
 <title>LDlinkR: An R Package for Rapidly Calculating Linkage Disequilibrium Statistics in Diverse Populations</title>
 
@@ -31,23 +31,23 @@ document.addEventListener('DOMContentLoaded', function(e) {
 </script>
 
 <style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
 
 
 
 <style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
@@ -65,55 +65,54 @@ pre > code.sourceCode { white-space: pre-wrap; }
 pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
-  { counter-reset: source-line 0; }
+{ counter-reset: source-line 0; }
 pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
+{ position: relative; left: -4em; counter-increment: source-line; }
 pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
 div.sourceCode
-  {   }
+{ }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
 </style>
 <script>
 // apply pandoc div.sourceCode style to pre.sourceCode instead
@@ -122,13 +121,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -337,7 +343,7 @@ Calculating Linkage Disequilibrium Statistics in Diverse
 Populations</h1>
 <h4 class="author">Timothy A. Myers, Stephen J. Chanock and Mitchell J.
 Machiela</h4>
-<h4 class="date">2022-08-08</h4>
+<h4 class="date">2022-12-15</h4>
 
 
 
@@ -599,7 +605,7 @@ default = NULL, register for a free token on the <a href="https://ldlink.nci.nih
 site.</a></li>
 <li><code>file</code>, optional character string naming a path and file
 for saving results. If file = FALSE, no file will be generated, default
-= FALSE</li>
+= FALSE.</li>
 </ul>
 </div>
 <div id="usage-single-query-variant-multiple-populations-multiple-tissue-types-using-tissue-abbreviation" class="section level4">
@@ -668,7 +674,8 @@ GRCh38.</h4>
       token = NULL, 
       file = FALSE, 
       table_type = &quot;haplotype&quot;,
-      genome_build = &quot;grch37&quot;)</code></pre>
+      genome_build = &quot;grch37&quot;
+     )</code></pre>
 <p>Calculates population specific haplotype frequencies of all
 haplotypes observed for a list of query variants. Input is a list of
 variant RS numbers (concatenated list) and a population group.</p>
@@ -782,7 +789,8 @@ output format types.</p>
          r2d = &quot;r2&quot;, 
          token = NULL, 
          file = FALSE,
-         genome_build = &quot;grch37&quot;)</code></pre>
+         genome_build = &quot;grch37&quot;
+        )</code></pre>
 <p>Generates a data frame of pairwise linkage disequilibrium statistics.
 Input is a list of between 2 to 1000 variants. Desired output can be
 based on estimates of R<sup>2</sup> or D’.</p>
@@ -878,7 +886,8 @@ variants and pairwise linkage disequilibrium statistics.</p>
        token = NULL, 
        output = &quot;table&quot;, 
        file = FALSE,
-       genome_build = &quot;grch37&quot;)</code></pre>
+       genome_build = &quot;grch37&quot;
+      )</code></pre>
 <p>Investigates potentially correlated alleles for a pair of variants.
 Input is two query variants and a 1000 Genomes Project reference
 population(s) of interest.</p>
@@ -989,7 +998,8 @@ the data from the two-by-two contingency table into a data frame.</p>
       r2d = &quot;r2&quot;, 
       token = NULL, 
       file = FALSE,
-      genome_build = &quot;grch37&quot;)</code></pre>
+      genome_build = &quot;grch37&quot;
+     )</code></pre>
 <p>Investigates allele frequencies and linkage disequilibrium patterns
 across 1000G populations.</p>
 </div>
@@ -1042,7 +1052,8 @@ Genome Project data sets. Default is GRCh37 (hg19).</li>
         r2d = &quot;r2&quot;, 
         token = NULL, 
         file = FALSE,
-        genome_build = &quot;grch37&quot;)</code></pre>
+        genome_build = &quot;grch37&quot;
+       )</code></pre>
 <p>Explore proxy and putative functional variants for a single query
 variant. Input is a single RS number and a population group. Depending
 on the number of query populations, this function could take some time
@@ -1111,7 +1122,8 @@ with a pairwise R<sup>2</sup> value greater than 0.01.</p>
               r2d = &quot;r2&quot;, 
               token = NULL, 
               append = FALSE,
-              genome_build = &quot;grch37&quot;)</code></pre>
+              genome_build = &quot;grch37&quot;
+             )</code></pre>
 <p>Query <em>LDproxy</em> using a list of query variants.
 <em>LDproxy_batch</em> will make sequential queries, one query per
 variant. Concurrent queries are not permitted by the LDlink API. Output
@@ -1372,7 +1384,7 @@ genotyping array.</p>
         token = NULL, 
         file = FALSE,
         genome_build = &quot;grch37&quot;
-        )</code></pre>
+       )</code></pre>
 <p>Prune a list of variants by linkage disequilibrium. Input is a list
 of variant RS numbers (one per line) and a population group.</p>
 </div>
@@ -1569,10 +1581,11 @@ yourself, you can email us at <a href="mailto:NCILDlinkWebAdmin@mail.nih.gov" cl
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] digest_0.6.29   R6_2.5.1        jsonlite_1.8.0  magrittr_2.0.3  evaluate_0.15   stringi_1.7.6  
-##  [7] rlang_1.0.3     cli_3.3.0       rstudioapi_0.13 jquerylib_0.1.4 bslib_0.3.1     rmarkdown_2.14 
-## [13] tools_4.1.2     stringr_1.4.0   xfun_0.31       yaml_2.3.5      fastmap_1.1.0   compiler_4.1.2 
-## [19] htmltools_0.5.2 knitr_1.39      sass_0.4.1</code></pre>
+##  [1] digest_0.6.30   R6_2.5.1        lifecycle_1.0.3 jsonlite_1.8.4  magrittr_2.0.3  evaluate_0.18  
+##  [7] stringi_1.7.8   cachem_1.0.6    rlang_1.0.6     cli_3.4.1       rstudioapi_0.14 jquerylib_0.1.4
+## [13] bslib_0.4.1     vctrs_0.5.1     rmarkdown_2.18  tools_4.1.2     stringr_1.5.0   glue_1.6.2     
+## [19] xfun_0.35       yaml_2.3.6      fastmap_1.1.0   compiler_4.1.2  htmltools_0.5.3 knitr_1.41     
+## [25] sass_0.4.4</code></pre>
 </div>
 
 

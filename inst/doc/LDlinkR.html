@@ -12,7 +12,7 @@
 
 <meta name="author" content="Timothy A. Myers, Stephen J. Chanock and Mitchell J. Machiela" />
 
-<meta name="date" content="2022-12-15" />
+<meta name="date" content="2023-05-31" />
 
 <title>LDlinkR: An R Package for Rapidly Calculating Linkage Disequilibrium Statistics in Diverse Populations</title>
 
@@ -343,14 +343,14 @@ Calculating Linkage Disequilibrium Statistics in Diverse
 Populations</h1>
 <h4 class="author">Timothy A. Myers, Stephen J. Chanock and Mitchell J.
 Machiela</h4>
-<h4 class="date">2022-12-15</h4>
+<h4 class="date">2023-05-31</h4>
 
 
 
 <hr />
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p><a href="https://ldlink.nci.nih.gov">LDlink</a> is an interactive and
+<p><a href="https://ldlink.nih.gov">LDlink</a> is an interactive and
 powerful suite of web-based tools for querying germline variants in
 human population groups of interest to generate interactive tables and
 plots. All population genotype data originates from Phase 3 (Version 5)
@@ -362,7 +362,7 @@ web-based applications from the R console. <em>LDlinkR</em> accelerates
 genomic research by providing efficient and user-friendly functions to
 programmatically interrogate pairwise linkage disequilibrium from large
 lists of genetic variants.</p>
-<p>Please see the the sections below and the online <a href="https://ldlink.nci.nih.gov/?tab=help#Understanding_Linkage_Disequilibrium">LDlink
+<p>Please see the the sections below and the online <a href="https://ldlink.nih.gov/?tab=help#Understanding_Linkage_Disequilibrium">LDlink
 documentation</a> for more information about understanding linkage
 disequilibrium (LD) and additional details about how LDlink calculates
 patterns of LD across a variety of ancestral human populations.</p>
@@ -503,7 +503,7 @@ and emulates the more familiar HTTPS username/password or SSH keys.</p>
 <p>You will need to:</p>
 <ul>
 <li>Make a one-time request for your personal access token from a web
-browser at <a href="https://ldlink.nci.nih.gov/?tab=apiaccess" class="uri">https://ldlink.nci.nih.gov/?tab=apiaccess</a>.</li>
+browser at <a href="https://ldlink.nih.gov/?tab=apiaccess" class="uri">https://ldlink.nih.gov/?tab=apiaccess</a>.</li>
 <li>Once registered, your personal access token will be emailed to you.
 It is a string of 12 random letters and numbers.</li>
 <li>Provide your token as an argument when using <em>LDlinkR</em>. See
@@ -601,8 +601,7 @@ options…<code>grch37</code> for genome build GRCh37 (hg19),
 <code>grch38_high_coverage</code> for GRCh38 High Coverage (hg38) 1000
 Genome Project data sets. Default is GRCh37 (hg19).</li>
 <li><code>token</code>, LDlink provided user access token is required,
-default = NULL, register for a free token on the <a href="https://ldlink.nci.nih.gov/?tab=apiaccess">LDlink web
-site.</a></li>
+default = NULL, register for a free token on the <a href="https://ldlink.nih.gov/?tab=apiaccess">LDlink web site.</a></li>
 <li><code>file</code>, optional character string naming a path and file
 for saving results. If file = FALSE, no file will be generated, default
 = FALSE.</li>
@@ -689,8 +688,7 @@ or chromosome coordinate (e.g. “chr7:24966446”)</li>
 letter population code, (e.g. YRI or CEU), multiple allowed, default =
 “CEU”</li>
 <li><code>token</code>, LDlink provided user access token is required,
-default = NULL, register for a free token on the <a href="https://ldlink.nci.nih.gov/?tab=apiaccess">LDlink web
-site.</a></li>
+default = NULL, register for a free token on the <a href="https://ldlink.nih.gov/?tab=apiaccess">LDlink web site.</a></li>
 <li><code>file</code>, optional character string naming a path and file
 for saving results. If file = FALSE, no file will be generated, default
 = FALSE</li>
@@ -806,8 +804,7 @@ letter population code, (e.g. YRI or CEU), multiple allowed, default =
 <li><code>r2d</code>, use either “r2” for pairwise R<sup>2</sup>
 statistics or “d” for pairwise D’ statistics</li>
 <li><code>token</code>, LDlink provided user access token is required,
-default = NULL, register for a free token on the <a href="https://ldlink.nci.nih.gov/?tab=apiaccess">LDlink web
-site.</a></li>
+default = NULL, register for a free token on the <a href="https://ldlink.nih.gov/?tab=apiaccess">LDlink web site.</a></li>
 <li><code>file</code>, optional character string naming a path and file
 for saving results. If file = FALSE, no file will be generated, default
 = FALSE</li>
@@ -904,8 +901,7 @@ above, must match a bi-allelic variant</li>
 three letter population code, (e.g. YRI or CEU), multiple allowed,
 default = “CEU”</li>
 <li><code>token</code>, LDlink provided user access token is required,
-default = NULL, register for a free token on the <a href="https://ldlink.nci.nih.gov/?tab=apiaccess">LDlink web
-site.</a></li>
+default = NULL, register for a free token on the <a href="https://ldlink.nih.gov/?tab=apiaccess">LDlink web site.</a></li>
 <li><code>output</code>, two output format options are available,
 “text”, which displays a two-by-two matrix displaying haplotype counts
 and allele frequencies along with other statistics, or “table”, which
@@ -1017,8 +1013,7 @@ default = “CEU”</li>
 <li><code>r2d</code>, use “r2” if desired output is based on estimated
 R<sup>2</sup> or “d” if D’</li>
 <li><code>token</code>, LDlink provided user access token is required,
-default = NULL, register for a free token on the <a href="https://ldlink.nci.nih.gov/?tab=apiaccess">LDlink web
-site.</a></li>
+default = NULL, register for a free token on the <a href="https://ldlink.nih.gov/?tab=apiaccess">LDlink web site.</a></li>
 <li><code>file</code>, optional character string naming a path and file
 for saving results. If file = FALSE, no file will be generated, default
 = FALSE</li>
@@ -1071,8 +1066,7 @@ default = “CEU”</li>
 <li><code>r2d</code>, use “r2” if desired output is based on estimated
 R<sup>2</sup> or “d” if D’</li>
 <li><code>token</code>, LDlink provided user access token is required,
-default = NULL, register for a free token on the <a href="https://ldlink.nci.nih.gov/?tab=apiaccess">LDlink web
-site.</a></li>
+default = NULL, register for a free token on the <a href="https://ldlink.nih.gov/?tab=apiaccess">LDlink web site.</a></li>
 <li><code>file</code>, optional character string naming a path and file
 for saving results. If file = FALSE, no file will be generated, default
 = FALSE</li>
@@ -1143,8 +1137,7 @@ default = “CEU”</li>
 <li><code>r2d</code>, use “r2” if desired output is based on estimated
 R<sup>2</sup> or “d” if D’</li>
 <li><code>token</code>, LDlink provided user access token is required,
-default = NULL, register for a free token on the <a href="https://ldlink.nci.nih.gov/?tab=apiaccess">LDlink web
-site.</a></li>
+default = NULL, register for a free token on the <a href="https://ldlink.nih.gov/?tab=apiaccess">LDlink web site.</a></li>
 <li><code>append</code>, a logical, if TRUE, output for each query
 variant is appended to a single text file and saved to the current
 working directory. If FALSE, output for each query variant is saved in
@@ -1226,8 +1219,7 @@ Default value is 0.1.</li>
 calculation. Specify a value greater than or equal to zero and less than
 or equal to 1000000 basepairs (bp). Default value is -/+ 500000 bp.</li>
 <li><code>token</code>, LDlink provided user access token is required,
-default = NULL, register for a free token on the <a href="https://ldlink.nci.nih.gov/?tab=apiaccess">LDlink web
-site.</a>.</li>
+default = NULL, register for a free token on the <a href="https://ldlink.nih.gov/?tab=apiaccess">LDlink web site.</a>.</li>
 <li><code>file</code>, optional character string naming a path and file
 for saving results. If file = FALSE, no file will be generated, default
 = FALSE.</li>
@@ -1310,8 +1302,7 @@ array, ALL_Illumina, ALL_Affy or ALL, default=ALL, use the
 <code>list_chips</code> utility (see below) to lookup available
 commercial SNP chip arrays and their codes.</li>
 <li><code>token</code>, LDlink provided user access token is required,
-default = NULL, register for a free token on the <a href="https://ldlink.nci.nih.gov/?tab=apiaccess">LDlink web
-site.</a></li>
+default = NULL, register for a free token on the <a href="https://ldlink.nih.gov/?tab=apiaccess">LDlink web site.</a></li>
 <li><code>file</code>, optional character string naming a path and file
 for saving results. If file = FALSE, no file will be generated, default
 = FALSE.</li>
@@ -1407,8 +1398,7 @@ threshold for LD pruning. Variants with a MAF less than or equal to the
 threshold are removed. Value needs to be in the range 0 to 1. Default
 value is 0.01.</li>
 <li><code>token</code>, LDlink provided user access token is required,
-default = NULL, register for a free token on the <a href="https://ldlink.nci.nih.gov/?tab=apiaccess">LDlink web
-site.</a></li>
+default = NULL, register for a free token on the <a href="https://ldlink.nih.gov/?tab=apiaccess">LDlink web site.</a></li>
 <li><code>file</code>, optional character string naming a path and file
 for saving results. If file = FALSE, no file will be generated, default
 = FALSE.</li>
@@ -1566,13 +1556,13 @@ yourself, you can email us at <a href="mailto:NCILDlinkWebAdmin@mail.nih.gov" cl
 <div id="session-information" class="section level2">
 <h2>Session Information</h2>
 <div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
-<pre><code>## R version 4.1.2 (2021-11-01)
+<pre><code>## R version 4.2.3 (2023-03-15)
 ## Platform: x86_64-apple-darwin17.0 (64-bit)
-## Running under: macOS Big Sur 10.16
+## Running under: macOS Big Sur ... 10.16
 ## 
 ## Matrix products: default
-## BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib
-## LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRlapack.dylib
 ## 
 ## locale:
 ## [1] C/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
@@ -1581,11 +1571,10 @@ yourself, you can email us at <a href="mailto:NCILDlinkWebAdmin@mail.nih.gov" cl
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] digest_0.6.30   R6_2.5.1        lifecycle_1.0.3 jsonlite_1.8.4  magrittr_2.0.3  evaluate_0.18  
-##  [7] stringi_1.7.8   cachem_1.0.6    rlang_1.0.6     cli_3.4.1       rstudioapi_0.14 jquerylib_0.1.4
-## [13] bslib_0.4.1     vctrs_0.5.1     rmarkdown_2.18  tools_4.1.2     stringr_1.5.0   glue_1.6.2     
-## [19] xfun_0.35       yaml_2.3.6      fastmap_1.1.0   compiler_4.1.2  htmltools_0.5.3 knitr_1.41     
-## [25] sass_0.4.4</code></pre>
+##  [1] digest_0.6.31   R6_2.5.1        jsonlite_1.8.4  evaluate_0.21   cachem_1.0.8    rlang_1.1.1    
+##  [7] cli_3.6.1       rstudioapi_0.14 jquerylib_0.1.4 bslib_0.4.2     rmarkdown_2.21  tools_4.2.3    
+## [13] xfun_0.39       yaml_2.3.7      fastmap_1.1.1   compiler_4.2.3  htmltools_0.5.5 knitr_1.43     
+## [19] sass_0.4.6</code></pre>
 </div>
 
 

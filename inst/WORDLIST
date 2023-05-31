@@ -1,12 +1,13 @@
 ADI
 Affy
-CBIIT
 CEU
+CMD
 EBI
 GRCH
 GRCh
 GTEx
 GWAS
+Github
 HTTPS
 Illumina
 LD
@@ -43,8 +44,8 @@ YourTokenHere
 abc
 al
 allelic
-apiaccess
 basepairs
+bibentry
 bioinformatics
 bp
 btv
@@ -57,11 +58,9 @@ eQTL
 et
 eval
 germline
-github
 grch
 gtex
 hg
-https
 httr
 indels
 ldexpress
@@ -69,7 +68,6 @@ ldhap
 ldlink
 liftOver
 metacran
-nci
 nih
 polymorphisms
 programmatically

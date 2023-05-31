@@ -1,4 +1,9 @@
-# LDlinkR 1.2.2.9000
+# LDlinkR 1.3.0
+* Change LDlink Domain URL to https://ldlink.nih.gov/ (previous url root will no longer work following an unspecified amount of time).
+* Add Continuous Integration using Github Actions.
+* Update citation file with bibentry style
+
+# LDlinkR 1.2.3
 * Add feature to provide root URL to API
 * Fix bug that scrambled columns in LDproxy_batch when 'append' option is TRUE
 * Update Roxygen version to 7.2.2

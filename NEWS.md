@@ -1,3 +1,13 @@
+# LDlinkR 1.4.0
+* Added Zenodo DOI badge in version 1.3.0.9000
+* 3/1/2024 - Increased maximum allowed variants in LDmatrix to 2500
+* 3/1/2024 - Added bp window size parameter to LDproxy
+* 3/4/2024 - Add bp window size parameter to LDproxy_batch
+
+# LDlinkR 1.3.0.9000 (development version)
+* Add Zenodo DOI badge
+* To do: Increase maximum allowed variants in LDmatrix to 3000.
+
 # LDlinkR 1.3.0
 * Change LDlink Domain URL to https://ldlink.nih.gov/ (previous url root will no longer work following an unspecified amount of time).
 * Add Continuous Integration using Github Actions.
